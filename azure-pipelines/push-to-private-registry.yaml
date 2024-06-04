@@ -1,0 +1,51 @@
+parameters:
+  - name: imageName
+    type: string
+  - name: dockerhubNS
+    type: string
+    default: dungat
+  - name: dockerFilePath
+    type: string
+    default: '**/Dockerfile'
+  - name: dockerContextPath
+    type: string
+    default: $(Build.Repository.LocalPath)
+
+stages:
+  - stage:
+    displayName: Push to private registry
+
+    jobs:
+      - job:
+        displayName: "Push to private registry ${{parameters.imageName}}"
+        steps:
+          - checkout: self
+            submodules: true
+
+          - task: Docker@2
+            displayName: Login to Docker Hub
+            inputs:
+              containerRegistry: 'Kubernetes Registry'
+              command: 'login'
+
+          - task: Docker@2
+            displayName: Build image
+            inputs:
+              containerRegistry: 'Kubernetes Registry'
+              repository: '${{ parameters.dockerhubNS }}/${{ parameters.imageName }}'
+              command: 'build'
+              Dockerfile: '${{ parameters.dockerFilePath }}'
+              buildContext: '${{ parameters.dockerContextPath }}'
+              tags: |
+                $(Build.BuildId)
+                latest
+
+          - task: Docker@2
+            displayName: Push image
+            inputs:
+              containerRegistry: 'Kubernetes Registry'
+              repository: '${{ parameters.dockerhubNS }}/${{ parameters.imageName }}'
+              command: 'push'
+              tags: |
+                $(Build.BuildId)
+                latest

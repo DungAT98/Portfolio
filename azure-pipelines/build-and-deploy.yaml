@@ -1,0 +1,25 @@
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+resources:
+  repositories:
+    - repository: K8sDeploymentRepo
+      type: git
+      name: Portfolio/Deployment
+      ref: refs/heads/main
+
+trigger:
+  - main
+
+#pool: Default
+
+stages:
+  - template: push-to-private-registry.yaml
+    parameters:
+      imageName: dungat-portfolio
+      dockerFilePath: './Dockerfile'
+      dockerContextPath: './'
+  - template: trigger-deployment.yaml
+    parameters:
+      deploymentTag: $(Build.BuildId)
