@@ -1,0 +1,27 @@
+parameters:
+  - name: deploymentTag
+    type: string
+    default: latest
+
+stages:
+  - stage:
+    displayName: Deploy to k8s
+    
+    jobs:
+      - job:
+        displayName: "Deploy to k8s"
+        steps:
+          - checkout: K8sDeploymentRepo
+            submodules: true
+            persistCredentials: true
+          - bash: |
+              git config user.name "Azure Pipelines"
+              git config user.email "pipeline@dungat.com"
+              git pull
+              git checkout main
+              git pull
+              sed -i 's+registry.dungat.com/dungat/dungat-portfolio.*+registry.dungat.com/dungat/dungat-portfolio:${{parameters.deploymentTag}}+g' deployment.yaml
+              git add .
+              git commit -m "Deploying version ${{ parameters.deploymentTag }}"
+              git push origin main
+            displayName: Git Commit
