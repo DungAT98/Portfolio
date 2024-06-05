@@ -12,4 +12,4 @@ RUN npm run build
 
 # Second stage - Serve the application
 FROM devforth/spa-to-http:latest
-COPY --from=build /usr/src/app/dist .
+COPY --from=build /usr/src/app/.next .
