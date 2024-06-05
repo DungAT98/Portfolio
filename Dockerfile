@@ -1,22 +1,15 @@
-# Use the official lightweight Node.js 18 image.
-# https://hub.docker.com/_/node
-FROM node:18-slim
+# First stage - Building the application
+# Use node:18-alpine image as a parent image
+FROM node:18-alpine as build
 
-# Create and change to the app directory.
 WORKDIR /usr/src/app
 
-# Copy application dependency manifests to the container image.
-# A wildcard is used to ensure both package.json AND package-lock.json are copied.
-COPY package*.json ./
+COPY . /usr/src/app
 
-# Install all dependencies.
 RUN npm install
 
-# Copy local code to the container image.
-COPY . .
-
-# Build the app
 RUN npm run build
 
-# Run the web service on container startup.
-CMD [ "npm", "start" ]
+# Second stage - Serve the application
+FROM devforth/spa-to-http:latest
+COPY --from=build /usr/src/app/dist .
