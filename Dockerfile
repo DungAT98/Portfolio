@@ -6,10 +6,12 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN npm install
+RUN npm install pnpm -g
 
-RUN npm run build
+RUN pnpm install
+
+RUN pnpm build
 
 # Second stage - Serve the application
 FROM devforth/spa-to-http:latest
-COPY --from=build /usr/src/app/.next .
+COPY --from=build /usr/src/app/out .

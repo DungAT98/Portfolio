@@ -1,4 +1,3 @@
-import { Openpesa } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
@@ -11,7 +10,7 @@ export const RESUME_DATA = {
   summary:
     "As a Full Stack Engineer, I have experience in building web and some Devops process.",
   avatarUrl:
-    "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/433483096_7389763477733727_3999726693592184513_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH8S5l4bg3mmsbk9TjE6MiuBsoF-JlcM14GygX4mVwzXgb4dNKd_IyDtEZSe8QtIGEW1nIwkdb7Z8oHaVkpogXV&_nc_ohc=fh24nmEmNoYQ7kNvgF44rmK&_nc_ht=scontent.fhan5-11.fna&oh=00_AYCWc84qrKCGybofdQZzb8T68ypCaIv6_k25q81PuJJGjQ&oe=6664EB3E",
+    "/avatar.jpeg",
   personalWebsiteUrl: "https://dungat.com/",
   contact: {
     email: "dungat98@gmail.com",
