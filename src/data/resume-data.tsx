@@ -99,6 +99,22 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "Tally Candi Portal",
+      techStack: [
+        "Blazor WebAssembly",
+        "Azure",
+        "Azure Functions",
+        "Durable Functions",
+        "Azure Service Bus",
+      ],
+      description:
+          "A portal to help users to visualize the electrical data in each sites. For the long running process, it uses Azure Durable Functions to do the job. The application is built with Blazor WebAssembly and deployed on Azure",
+      link: {
+        label: "Candi Portal",
+        href: "#",
+      },
+    },
+    {
       title: "Finance Management System",
       techStack: ["Sharepoint Framework", "SharePoint OnPremises", "FluentUI"],
       description:
@@ -138,22 +154,6 @@ export const RESUME_DATA = {
         "A landing website that helps users to know about the company and the services. The application is built with Gatsby and deployed on Azure. It uses Azure DevOps for CI/CD pipelines.",
       link: {
         label: "Landing Website",
-        href: "#",
-      },
-    },
-    {
-      title: "Candi Portal",
-      techStack: [
-        "Blazor WebAssembly",
-        "Azure",
-        "Azure Functions",
-        "Durable Functions",
-        "Azure Service Bus",
-      ],
-      description:
-        "A portal to help users to visualize the electrical data in each sites. For the long running process, it uses Azure Durable Functions to do the job. The application is built with Blazor WebAssembly and deployed on Azure",
-      link: {
-        label: "Candi Portal",
         href: "#",
       },
     },
