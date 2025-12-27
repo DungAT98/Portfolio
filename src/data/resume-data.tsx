@@ -44,12 +44,22 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "CoverGo",
+      link: "https://www.covergo.com/",
+      badges: ["Insurtech", "Fullstack"],
+      title: "Full Stack Developer",
+      start: "July 2025",
+      end: "Now",
+      description:
+        "Building and maintaining CoverGo's award-winning no-code insurance platform. Developing microservices using .NET Core with MongoDB for data persistence. Creating frontend features with Vue.js for policy administration and claims management modules. Implementing monitoring and observability solutions with Grafana. Deploying and orchestrating services on Kubernetes clusters.",
+    },
+    {
       company: "CMC Global",
       link: "https://cmcglobal.com.vn/",
       badges: ["Software", "Fullstack"],
       title: "Fullstack Backend .NET Developer",
       start: "2021",
-      end: "Now",
+      end: "June 2025",
       description:
         "Crafts comprehensive web applications utilizing modern technologies. Builds interactive UIs with React or Angular and integrates them with robust, scalable APIs on .NET Core. Optimizes application deployment and performance using cloud services like Azure and AWS. Implements CI/CD pipelines for automated testing and deployment. Collaborates with cross-functional teams to deliver high-quality software solutions.",
     },
@@ -98,6 +108,25 @@ export const RESUME_DATA = {
     "Confluence",
   ],
   projects: [
+    {
+      title: "CoverGo Insurance Platform",
+      techStack: [
+        ".NET Core",
+        "Vue.js",
+        "MongoDB",
+        "Microservices",
+        "Kubernetes",
+        "Grafana",
+        "Docker",
+        "REST API",
+      ],
+      description:
+        "Contributed to CoverGo's award-winning no-code insurance platform serving insurers globally. Built and maintained microservices using .NET Core with MongoDB for data persistence. Developed frontend features with Vue.js for the policy administration and claims management modules. Implemented monitoring dashboards with Grafana for system observability. Deployed and orchestrated services on Kubernetes clusters ensuring high availability and scalability.",
+      link: {
+        label: "CoverGo",
+        href: "https://www.covergo.com/",
+      },
+    },
     {
       title: "Tally Candi Portal",
       techStack: [
